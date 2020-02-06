@@ -1,0 +1,98 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des formations</h4>
+                <h5> Rechercher: <input type="text" id="recherche"></h5>
+            </div>
+            <div class="content table-responsive table-full-width" v>
+                <table class="table table-striped" id="tableau" >
+                    <thead>
+                    <th>  Image</th>
+                    <th> Nom Produit</th>
+                    <th> Quantité</th>
+                    <th> Type Produit </th>
+                    <th> Prix</th>
+                    <th>  Categorie</th>
+
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                    </thead>
+                    <tbody>
+                    {% for produit in produits  %}
+                        <tr>
+                            <td>
+                                <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" style="height: 70px; width: 100px" >
+                            </td>
+                            <td>
+                                {{  produit.nomProd }}
+                            </td>
+                            <td>
+                                {{  produit.qteStockProd }}
+                            </td>
+                            <td>
+                                {{  produit.typeProd }}
+                            </td>
+                            <td>
+                                {{  produit.prixProd * 3 }}
+                            </td>
+                            <td>
+                                {{  produit.idCat.nomCat }}
+                            </td>
+                            <td>
+                                <a href="{{ path('Supprimer_Produit',{'id':produit.id}) }}">Supprimer</a>
+                            </td>
+
+                            <td>
+                                <a href="{{ path('update_Produit',{'id':produit.id}) }}">Modifier</a>
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+            $("#recherche").keyup(function () {
+                $.ajax({
+                    url : "{{ path('recherche_produit') }}",
+                    data : { 'produit' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#tableau').empty();
+                    $('#tableau').append(tableau);
+                });
+            });
+        })
+    </script>
+
+
+{% endblock %}
+        {% block javascript %}
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                demo.initChartist();
+
+                $.notify({
+                    icon: 'ti-gift',
+                    message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+
+                },{
+                    type: 'success',
+                    timer: 4000
+                });
+
+            });
+        </script>
+        {% endblock %}

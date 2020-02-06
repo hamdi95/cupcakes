@@ -1,0 +1,93 @@
+formateur_accueil:
+    path:   /
+    defaults: { _controller: CupCakesBundle:Default:Formateur }
+ModifierRecetteFormateur:
+    path:     /Modifier_Formateur_Recette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierClientRecette}
+SupprimerRecetteFormateur:
+    path:     /SupprimerRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerFormateurRecette}
+ListCategorieRecetteFormateur:
+    path:     /listeCategorieFormateur
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecetteFormateur }
+AjouterRecetteFormateur:
+    path:     /Ajouter_Formateur_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterFormateurRecette}
+ListeMesRecetteFormateur:
+    path:     /liste_Mes_RecetteFormateur
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecetteFormateur}
+ReadAllRecetteFormateur:
+    path:     /listeRecetteFormateur
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecetteFormateur}
+updateFRecette:
+    path:     /updateRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:UpdateRecetteFormateur}
+SingleRecetteFormateur:
+    path:     /SingleRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingleFormateur}
+AjouterCategorieFRecette:
+    path:     /ajouterCategorieFRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterFCategorieRecette }
+
+create_Formateur:
+    path:   /create
+    defaults: { _controller: CupCakesBundle:Formation:createFormation }
+read_Formateur:
+    path:   /read/listeFormation
+    defaults: { _controller: CupCakesBundle:Formation:ListeFormationBack }
+update_Formateur:
+    path:   /update/{id}
+    defaults: { _controller: CupCakesBundle:Formation:updateFormation }
+delete_Formateur:
+    path:   /delete/{id}
+    defaults: { _controller: CupCakesBundle:Formation:deleteFormation }
+search_Formateur:
+    path:   /search/formation
+    defaults: { _controller: CupCakesBundle:Formation:searchFormation }
+create_Session:
+    path:   /createSession
+    defaults: { _controller: CupCakesBundle:Session:createSession }
+read_Session:
+    path:   /readSession
+    defaults: { _controller: CupCakesBundle:Session:readSession }
+update_Session:
+    path:   /Session/update{id}
+    defaults: { _controller: CupCakesBundle:Session:updateSession }
+delete_Session:
+    path:   /delete/Session/{id}
+    defaults: { _controller: CupCakesBundle:Session:deleteSession }
+search_Session:
+    path:   /search/Session
+    defaults: { _controller: CupCakesBundle:Session:searchSession }
+ClientsAffectes:
+    path:   /Client/Affectes
+    defaults: { _controller: CupCakesBundle:Formation:ClientAffectes }
+
+ListSessionBackend:
+    path:   /Session/back/{id}
+    defaults: { _controller: CupCakesBundle:Session:readSessionByIdForBack }
+Rechercheform:
+    path:   /rech/formation
+    defaults: { _controller: CupCakesBundle:Formation:searchFormation }
+
+read_Promotion_formation:
+    path:     /read_promos
+    defaults: { _controller: CupCakesBundle:Promotion:read_PromotionFormation }
+creat_Promotion_formation:
+    path:     /create_promos
+    defaults: { _controller: CupCakesBundle:Promotion:create_PromotionFormation }
+
+read_Promotion_session:
+    path:     /read_promos_session
+    defaults: { _controller: CupCakesBundle:LinePromoSes:read_PromotionSession }
+creat_Promotion_session:
+    path:     /create_promos_session
+    defaults: { _controller: CupCakesBundle:LinePromoSes:create_LinePromotionSession }
+update_Promo_Session:
+    path:     /update_sessision_promo/{id}
+    defaults: { _controller: CupCakesBundle:LinePromoSes:update_session_promo }
+delete_promo_session:
+    path:     /delete_promo_session/{id}
+    defaults: { _controller: CupCakesBundle:LinePromoSes:delete }
+
+

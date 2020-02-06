@@ -1,0 +1,28 @@
+cup_cakes_homepage:
+    path:     /Patisserie
+    defaults: { _controller: CupCakesBundle:Default:index }
+cup_cakes_Dashbord:
+    path:    /Admin
+    defaults: { _controller: CupCakesBundle:Default:Admin }
+cup_cakes_Eshop:
+    path:   /Client
+    defaults: { _controller: CupCakesBundle:Default:client }
+cup_cakes_client:
+    resource: "@CupCakesBundle/Resources/config/routing1/Client.yml"
+    prefix:   /Client
+cup_cakes_Patisseurie:
+    resource: "@CupCakesBundle/Resources/config/Routing1/Patisseurie.yml"
+    prefix:   /Patisserie
+cup_cakes_Formateur:
+    resource: "@CupCakesBundle/Resources/config/Routing1/Formateur.yml"
+    prefix:   /Formateur
+cup_cakes_register:
+    path:   /registerr
+    defaults: { _controller: CupCakesBundle:Registration:register }
+cup_cakes_note:
+    resource: "@CupCakesBundle/Resources/config/routing1/Note.yml"
+    prefix:   /Note
+cup_cakes_admin:
+    resource: "@CupCakesBundle/Resources/config/routing1/Admin.yml"
+    prefix:   /Note
+

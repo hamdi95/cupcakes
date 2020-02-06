@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::base.html.twig" %}
+{% block titreh3 %}Login to our site{% endblock %}
+{% block description %}Enter your username and password to log in:{% endblock %}
+{% block fos_user_content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+<div class="login">
+
+    <form role="form" action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <div class="form-group">
+            <label for="username" class="sr-only">{{ 'security.login.username'|trans }}</label>
+            <input type="text" placeholder="Username..." class="form-username form-control" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+        </div>
+            <div class="form-group">
+                <label for="password" class="sr-only">{{ 'security.login.password'|trans }}</label>
+                <input type="password" id="password" placeholder="Password..." class="form-password form-control" name="_password" required="required" autocomplete="current-password" />
+            </div>
+                <div class="form-group">
+                    <button type="submit" class="btn"  id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" >Sign in !</button>
+                </div>
+
+        <div class="form-bottom-left">
+                <a href="{{ path('cup_cakes_register') }}">Inscrivez vous</a>
+        <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublier</a>
+        </div>
+    </form>
+</div>
+{% endblock fos_user_content %}
+ {% block hwi_oauth_content %}
+     {% if error is defined and error %}
+         <span>{{ error }}</span>
+     {% endif %}
+     {% for owner in hwi_oauth_resource_owners() %}
+         {% if owner == 'facebook' %}
+             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url('facebook') }}">
+                 <i class="fa fa-facebook"></i>
+             </a>
+         {% else %}
+             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url('google') }}">
+                 <i class="fa fa-google-plus"></i>  </a>
+         {% endif %}
+     {% endfor %}
+ {% endblock hwi_oauth_content %}
+
+

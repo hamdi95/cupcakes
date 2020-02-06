@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laboom - Food & Restaurant Bistro HTML Template</title>
+    <link href="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.css') }}" rel="stylesheet" />
+    <link href=".{{ asset('ClientTemplate/plugin/bootstrap/datepicker.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/font-awesome/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/extralayers.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/settings.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.theme.default.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/slick-slider/slick-theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/magnific/magnific-popup.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
+
+    {% block stylesheet %}{% endblock %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+<!-- Page pre loader -->
+<div id="pre-loader">
+    <div class="loader-holder">
+        <div class="frame">
+            <img src="{{ asset('ClientTemplate/images/Preloader.gif') }}" alt="Laboom" />
+        </div>
+    </div>
+</div>
+<div class="wrapper-spacer wrapper-spacer-bg">
+    <!-- Start Header -->
+    <header>
+        <div class="header-part header-on header-near">
+            <div class="header-bottom">
+                <div class="container2">
+                    <div class="header-info">
+                        <div class="header-info-inner">
+                            <div class="book-table header-collect book-md">
+                                <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                            </div>
+                            <div class="shop-cart header-collect">
+                                <a href="{{ path('AfficherPanier') }}"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
+                            </div>
+                            <div class="search-part">
+                                <a href="#"></a>
+                                <div class="search-box">
+                                    <input type="text" id="recherche" name="txt" placeholder="Search" />
+                                    <input type="submit" name="submit" value=" " />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-table header-collect book-sm">
+                        <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                    </div>
+                    <div class="menu-main">
+                        <ul>
+                            <li class="">
+                                <a href="{{ path('cup_cakes_Eshop') }}">Home</a>
+
+                            </li>
+                            <li class="mega-menu">
+                                <a href="{{ path('ProduitListe') }}">Produits</a>
+                                <ul class="drop-nav">
+                                    <li>
+                                        <div class="drop-mega-part">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                    <span class="mega-title">Patisserie</span>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <ul>
+                                                                <li><a href="#"></a></li>
+                                                                <li><a href="#">Succrés</a></li>
+                                                                <li><a href="#">Salés</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                    <span class="mega-title">Matériels patisseries</span>
+                                                    <img src="{{ asset('ClientTemplate/images/img13.png') }}" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="#">Commandes</a>
+                                <ul class="drop-nav">
+                                    <li><a href="{{ path('CommandeSuivie') }}">Ma derniere Commande</a></li>
+                                    <li><a href="{{ path('ListeCommandeClient') }}">Mes Commandes</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="{{ path('ListFormateur') }}">Formations</a>
+                                <ul class="drop-nav">
+                                    <li>
+                                        <a href="{{ path('ListFormateur') }}">formations</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('SessionEncoursEtFinie') }}">mes sessions</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="{{ path('liste_promo') }}">Promotions</a>
+                                <ul class="drop-nav">
+                                    <li><a href="{{ path('read_promo_formation') }}">Formations</a></li>
+                                    <li><a href="{{ path('liste_promo') }}">Produits</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="{{ path('ListeRecette' ) }}">Recettes</a>
+                                <ul class="drop-nav">
+                                    <li><a href="{{ path('ListeRecette' ) }}">Tous les recettes</a></li>
+                                    <li><a href="{{ path('ListeMesRecette') }}">Mes recettes</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo">
+                        <a href="{{ path('cup_cakes_Eshop') }}"><img src="{{ asset('ClientTemplate/images/Logo Png.png') }}" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+
+            {% block containt %}
+    <main>
+        <div class="main-part">
+            <section class="home-slider home-ride">
+                <div class="home-slider-target">
+                    <div class="tp-banner-container">
+                        <div class="tp-banner">
+                            <ul>
+                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+                                    <img src="{{ asset('ClientTemplate/images/test3.jpg') }}" alt="slidebg1" data-lazyload="{{ asset('ClientTemplate/images/test3.jpg') }}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">CupCakes <i></i>
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Premiere Platforme de vente de gateau en Tunisie
+                                    </div>
+                                    <!-- LAYERS -->
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+            <!-- Start Main -->
+                {% endblock %}
+
+    <!-- End Main -->
+
+    <!-- Start Footer -->
+    <footer>
+        <div class="footer-mix wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-info">
+                        <h3>CupCake</h3>
+                        <p>Z.I.Chotrana II - B.P.160-2083-Pole Technologique - El Ghazela</p>
+                        <p><a href="#">+216 90 114 064</a></p>
+                        <p><a href="#">Cupcake@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-round-left">
+                    <span>Copyright © 2018 . All rights reserved.</span>
+                </div>
+                <div class="footer-round-middle">
+                    <a href="#"><img src="./images/logo4.png" alt="" /></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Start Book Table -->
+
+    <!-- End Book Table -->
+</div>
+<!-- Back To Top Arrow -->
+<a href="#" class="top-arrow"></a>
+<script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/slick-slider/slick.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/isotop/isotop.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/isotop/packery-mode.pkgd.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/magnific/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/animation/wow.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/parallax/jquery.stellar.js') }}"></script>
+<script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
+<script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
+{% block javascript %}
+{% endblock %}
+
+</body>
+
+</html>

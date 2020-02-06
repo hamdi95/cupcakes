@@ -1,0 +1,162 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@CupCakesBundle/Resources/config/services.yml" }
+
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: CupCakesBundle\Entity\Commentaire
+            thread: CupCakesBundle\Entity\Thread
+    acl: true
+    service:
+        acl:
+            thread:  fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+            vote:    fos_comment.acl.vote.roles
+        manager:
+            thread:  fos_comment.manager.thread.acl
+            comment: fos_comment.manager.comment.acl
+            vote:    fos_comment.manager.vote.acl
+    acl_roles:
+        comment:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_USER
+            delete: ROLE_USER
+        thread:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        vote:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        types:
+            money: Tbbc\MoneyBundle\Type\MoneyType
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path: '%database_path%'
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: CupCakesBundle\Entity\User
+    from_email:
+          address: aziz.hamadi@esprit.tn
+          sender_name:  CupCakes
+    registration:
+           form:
+               type: CupCakesBundle\Form\RegistrationFormType
+    profile:
+           form:
+               type: CupCakesBundle\Form\ProfileType
+    registration:
+            confirmation:
+                template:   '@FOSUser/Registration/email.txt.twig'
+
+
+hwi_oauth:
+    # list of names of the firewalls in which this bundle is active, this setting MUST be set
+    firewall_names: [secured_area]
+    resource_owners:
+        google:
+            type:                google
+            client_id:           641999114492-62matkaagirpe05c2ijk8fp9u0jrrjl5.apps.googleusercontent.com
+            client_secret:       l2XuVLVd-Tp8HATRaBeqKwAB
+            scope:               "email profile"
+            options:
+                csrf: true
+        facebook:
+            type:                facebook
+            client_id:           1884786145166913
+            client_secret:       5d84008ec64da2080639da00c244c3f4
+            options:
+                display: popup #dialog is optimized for popup window
+                auth_type: rerequest # Re-asking for Declined Permissions
+                csrf: true
+# Windows configuration
+
+tbbc_money:
+    currencies: ["USD", "EUR","TND"]
+    reference_currency: "EUR"
+    decimals: 2
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        binary:   "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options: []
+    process_timeout: 200 # In seconds
+
+cmen_google_charts:
+    version: "current"

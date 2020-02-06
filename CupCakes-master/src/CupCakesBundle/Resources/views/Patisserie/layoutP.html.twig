@@ -1,0 +1,213 @@
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/favicon.png') }}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>CupCakes{% block titre %}{% endblock %}</title>
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+            <!-- Bootstrap core CSS     -->
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+
+            <!-- Animation library for notifications   -->
+            <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet"/>
+
+            <!--  Paper Dashboard core CSS    -->
+            <link href="{{ asset('css/paper-dashboard.css') }}" rel="stylesheet"/>
+
+
+            <!--  CSS for Demo Purpose, don't include it in your project     -->
+            <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
+
+
+            <!--  Fonts and icons     -->
+            <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+            <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
+        {% block stylesheet %}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+    <div class="wrapper">
+        <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+            <!--
+                Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+                Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+            -->
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="http://www.creative-tim.com" class="simple-text">
+                      {{ app.user }}
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="{{ path('cup_cakes_homepage') }}">
+                            <i class="ti-bar-chart"></i>
+                            <p>Statistique</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Ajouter_Produit') }}">
+                            <i class="ti-package"></i>
+                            <p>ajouter produit</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('read_produit') }}">
+                            <i class="ti-layout-list-thumb"></i>
+                            <p>Liste Produits</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Ajouter_Categorie') }}">
+                            <i class="ti-layout-tab-v"></i>
+                            <p>Ajouter Categorie</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('read') }}">
+                            <i class="ti-list"></i>
+                            <p>Liste Categorie</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('create_Promotion') }}">
+                            <i class="ti-pinterest"></i>
+                            <p>Ajouter une pourcentage</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('create_Line_Promotion') }}">
+                            <i class="ti-pinterest"></i>
+                            <p>Ajouter une promotion direct</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('liste_Linepromo_produit') }}">
+                            <i class="ti-pinterest-alt"></i>
+                            <p>Liste des promotions</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('CommandeListePatisserie') }}">
+                            <i class="ti-clipboard"></i>
+                            <p>Liste Commandes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ListeFeedback') }}">
+                            <i class="ti-thumb-up"></i>
+                            <p>Liste Feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ListCategorieRecettePatisserie') }}">
+                            <i class="ti-layout-tab-min"></i>
+                            <p>Liste des Categories Recette</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('AjouterRecettePatisserie') }}">
+                            <i class="ti-crown"></i>
+                            <p>Ajouter une Recette</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ReadAllRecettePatisserie') }}">
+                            <i class="ti-list"></i>
+                            <p>Tous les recettes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ListeMesRecettePatisserie') }}">
+                            <i class="ti-layout-list-thumb-alt"></i>
+                            <p>Mes recettes</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar bar1"></span>
+                            <span class="icon-bar bar2"></span>
+                            <span class="icon-bar bar3"></span>
+                        </button>
+
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-stats-up"></i>
+                                    <p>Statistique de vue</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Stat_vente') }}" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bar-chart"></i>
+                                    <p>Statistique de ventes</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    <i class="ti-power-off"></i>
+                                    <p>Deconnexion</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+
+           {% block containt %}{% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+    <!--   Core JS Files   -->
+    <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="{{ asset('js/bootstrap-checkbox-radio.js') }}"></script>
+
+    <!--  Charts Plugin -->
+    <script src="{{ asset('js/chartist.min.js') }}"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
+
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    <script src="{{ asset('js/paper-dashboard.js') }}"></script>
+
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{{ asset('js/demo.js') }}"></script>
+
+
+{% block javascript %}
+{% endblock %}
+</html>

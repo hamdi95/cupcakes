@@ -1,0 +1,106 @@
+CommandeListePatisserie:
+    path:     /ListeComm
+    defaults: { _controller: CupCakesBundle:Commande:PatisserieListe }
+ModificationEtat:
+    path:     /ModificationEtat/{id}
+    defaults: { _controller: CupCakesBundle:Commande:UpdateEtatLivraison }
+ListeFeedback:
+    path:     /Feedback
+    defaults: { _controller: CupCakesBundle:FeedBack:ListeFeedback }
+DetailFeedback:
+    path:     /FeedbackDetail/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:DetailFeedback }
+AnnulationCmd:
+    path:     /Supp/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerCmd }
+recherche_user_commande:
+    path:     /commandeRecherche
+    defaults: { _controller: CupCakesBundle:Commande:Recherche }
+recherche_feedback:
+    path:     /feedbackRecherche
+    defaults: { _controller: CupCakesBundle:Commande:RechercheFeedback }
+Ajouter_Produit:
+    path:     /create_Produit
+    defaults: { _controller: CupCakesBundle:Produit:create_Produit}
+update_Produit:
+    path:     /update_Produit{id}
+    defaults: { _controller: CupCakesBundle:Produit:update_Produit}
+Ajouter_Categorie:
+    path:     /Create_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:create_Categorie}
+Supprimer_Categorie:
+    path:     /delete_categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:delete_categorie}
+update_Categorie:
+    path:     /update_Categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:update_Categorie}
+read:
+    path:     /read_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:read_categorie}
+read_produit:
+    path:     /read_produit
+    defaults: { _controller: CupCakesBundle:Produit:read_produit }
+Stat_vente:
+    path:     /stat
+    defaults: { _controller: CupCakesBundle:Commande:Stat }
+index:
+    path:     /index
+    defaults: { _controller: CupCakesBundle:Produit:index }
+recherche_produit:
+    path:     /Recherche_Produit
+    defaults: { _controller: CupCakesBundle:Produit:Recherche_Produit}
+Supprimer_Produit:
+    path:     /Supprimer_Produit/{id}
+    defaults: { _controller: CupCakesBundle:Produit:SupprimerProduit}
+
+ModifierRecettePatisserie:
+    path:     /Modifier_Formateur_Patisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierPatisserieRecette}
+SupprimerRecettePatisserie:
+    path:     /SupprimerRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerPatisserieRecette}
+ListCategorieRecettePatisserie:
+    path:     /listeCategoriePatisserie
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecettePatisserie }
+AjouterRecettePatisserie:
+    path:     /Ajouter_Patisserie_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterPatisserieRecette}
+ListeMesRecettePatisserie:
+    path:     /liste_Mes_RecettePatisserie
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecettePatisserie}
+ReadAllRecettePatisserie:
+    path:     /listeRecettePatisserie
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecettePatisserie}
+updatePRecette:
+    path:     /updateRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:UpdateRecettePatisserie}
+SingleRecettePatisserie:
+    path:     /SingleRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSinglePatisserie}
+AjouterCategoriePRecette:
+    path:     /ajouterCategoriePRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterPCategorieRecette }
+#promo produit
+create_Promotion:
+    path:     /create_Promotion_produit
+    defaults: { _controller: CupCakesBundle:Promotion:create_Promotion }
+liste_promo_produit:
+    path:     /read_Promotion_produit
+    defaults: { _controller: CupCakesBundle:Promotion:read_Promotion }
+
+
+create_Line_Promotion:
+    path:     /create_Line_Promotion
+    defaults: { _controller: CupCakesBundle:LinePromo:create_LinePromotionProduit }
+liste_Linepromo_produit:
+    path:     /read_Line_Promotion
+    defaults: { _controller: CupCakesBundle:LinePromo:read_LinePromotion }
+update_Line_Promotion:
+    path:     /update_Line_Promotion/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:update_line }
+delete_Line_Promotion:
+    path:     /delete_Line_Promotion/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:delete }
+
+
+

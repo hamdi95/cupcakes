@@ -1,0 +1,218 @@
+{% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
+{% block containt %}
+    <!-- Start Main -->
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>SHOP SINGLE</h2>
+                        <a href="#">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon shop-single pad-bottom-remove bg-skeen">
+                <div class="icon-default">
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="slider slider-for slick-shop">
+                                <div>
+                                    <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" />
+                                </div>
+
+                            </div>
+                            <div class="slider slider-nav slick-shop-thumb">
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <h4 class="text-coffee">{{  produit.nomProd }}</h4>
+                            <div class="star-review-collect">
+                                <div class="star-rating">
+                                        <span class="star-rating-customer" style="width: 100%">
+                                        </span>
+                                </div>
+                                <a href="#" class="review-text">03 customer review</a>
+                            </div>
+                            <p> Stock: {{  produit.qteStockProd }}</p>
+                            <p> Type: {{  produit.typeProd }}</p>
+                            <h3 class="text-coffee"><strong>{{ produit.tnd | money_format }}</strong></h3>
+                            <h3 class="text-coffee"><strong>{{ produit.euro | money_format }}</strong></h3>
+                            <h3 class="text-coffee"><strong>{{ produit.usd | money_format }}</strong></h3>
+
+                            <a href="{{ path('PasserCommande',{'id':produit.id}) }}" class="filter-btn btn-large"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Ajouter au panier</a>
+                            <div class="share-tag">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <li class="social-wrap">
+                                            <h5>Partager</h5>
+                                            <ul class="social">
+
+                                               {#{{  facebookButton() }}#}
+
+                                            </ul>
+                                        </li>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="tag-wrap">
+                                        <h5>TAGS</h5>
+                                        <a href="#" class="tag-btn">Audio</a>
+                                        <a href="#" class="tag-btn">Service</a>
+                                        <a href="#" class="tag-btn">Cupcake</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Start Tab Part -->
+
+        <!-- Start Related Product -->
+        <section class="related-product wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="container">
+                <div class="build-title">
+                    <h3>Related Products</h3>
+                </div>
+                <div class="owl-carousel owl-theme" data-items="4" data-laptop="3" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
+                    {% for produit1 in produits  %}
+                        <div class="item">
+                            <div class="related-img">
+                                <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit1.imageProd) }}"  height="262" width="227 alt="" />
+                            </div>
+                            <div class="related-info">
+                                <h6><a href="{{ path('Detail_Produit',{'id':produit.id }) }}">{{ produit.nomProd }}</a></h6>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img67.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img68.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img69.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img66.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img67.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img68.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img69.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img66.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img67.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img68.png') }}" alt="" />
+                        </div>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="related-img">
+                            <img src="{{ asset('ClientTemplate/images/img69.png') }}" alt="" />
+                        </div>
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.12';
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="related-info">
+                            <h6><a href="#">Blanched Garlic</a></h6>
+                            <h6><a href="#"><strong>$ 15.00</strong></a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Related Product -->
+        </div>
+    </main>
+    <!-- End Main -->
+
+{% endblock %}

@@ -1,0 +1,122 @@
+ValiderPanier:
+    path:     /main/{total}
+    defaults: { _controller: CupCakesBundle:Commande:ValiderPanier }
+CommandeSuivie:
+    path:     /suivie
+    defaults: { _controller: CupCakesBundle:Commande:Suivant }
+AfficherPanier:
+    path:     /panier
+    defaults: { _controller: CupCakesBundle:Commande:liste }
+PasserCommande:
+    path:     /ajouter/{id}
+    defaults: { _controller: CupCakesBundle:Commande:AjouterPanier }
+SupprimerPanier:
+    path:     /supprimer/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerPanier }
+AjouterFeedback:
+    path:     /Feedback/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:AjouterFeedback }
+AjouterLine:
+    path:     /Finie
+    defaults: { _controller: CupCakesBundle:Commande:AjouterLine }
+Pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: CupCakesBundle:Commande:PDFFacture }
+ProduitListe:
+    path:     /listeProduit
+    defaults: { _controller: CupCakesBundle:Produit:Liste }
+ProduitSeul:
+    path:     /produitDetaille
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+Detail_Produit:
+    path:     /Proddet{id}
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+ListeCommandeClient:
+    path:     /MesCommandes
+    defaults: { _controller: CupCakesBundle:Commande:ListeC }
+TraceCommande:
+    path:     /TrackOrder/{id}
+    defaults: { _controller: CupCakesBundle:Commande:TrackOrder }
+Recherche_produit1:
+    path:     /Recherche_Produit1
+    defaults: { _controller: CupCakesBundle:Produit:Recherche_Produit1 }
+Detail_Produit:
+    path:     /Proddet{id}
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+Detail_Categorie:
+    path:     /ListeCategorie/{id}
+    defaults: { _controller: CupCakesBundle:Produit:ListeCategorie }
+testMony:
+    path:     /Mony
+    defaults: { _controller: CupCakesBundle:Produit:aa }
+ListeRecette:
+    path:     /listeRecette
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecetteClient}
+ListeMesRecette:
+    path:     /liste_Mes_Recette
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecetteClient}
+SingleRecette:
+    path:     /SingleRecette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingleClient}
+rechercheRecetteClient:
+    path:     /rechercheClient
+    defaults: { _controller: CupCakesBundle:Recette:RechercheRecette}
+AjouterRecetteClient:
+    path:     /Ajouter_Client_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterClientRecette}
+RecupererMesRecetteClient:
+    path:     /RecupererRecetteClient
+    defaults: { _controller: CupCakesBundle:Recette:RecupererClientRecette}
+ModifierRecetteClient:
+    path:     /Modifier_Client_Recette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierClientRecette}
+SupprimerRecetteClient:
+    path:     /SupprimerRecetteClient/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerClientRecette}
+AjouterCategorieCRecette:
+    path:     /ajouterCategorieCRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterCCategorieRecette }
+ListCategorieRecetteClient:
+    path:     /listeCategorieClient
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecette }
+read_Educate:
+    path:   /readEducate
+    defaults: { _controller: CupCakesBundle:Educate:readEducate }
+create_Educate:
+    path:   /createEducate/{id}
+    defaults: { _controller: CupCakesBundle:Educate:createEducateSansPromo }
+ListFormateur:
+    path:   /ListFormateur
+    defaults: { _controller: CupCakesBundle:Formation:readFormation }
+SessionEncoursEtFinie:
+    path:   /List/Sessionetfinie
+    defaults: { _controller: CupCakesBundle:Session:Sessionencoursfinie }
+ListSession:
+    path:   /Session/{id}
+    defaults: { _controller: CupCakesBundle:Session:readSessionByIdFor }
+map:
+    path:   /map/{id}
+    defaults: { _controller: CupCakesBundle:Map:map }
+
+read_promo_formation:
+    path:     /read_promo_ses
+    defaults: { _controller: CupCakesBundle:Session:readSessionEnPromo }
+
+create_EducateAvecProm:
+    path:     /promo/{id}
+    defaults: { _controller: CupCakesBundle:Educate:createEducateAvecPromo }
+
+liste_promo:
+    path:     /liste_promo_produit
+    defaults: { _controller: CupCakesBundle:LinePromo:ListePromo }
+detail_promo:
+    path:     /detail_promo/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:detail_promo }
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block stylesheet %}
+    <link href="{{ asset('css/bouton.css') }}" rel="stylesheet"/>
+
+{% endblock %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste Des FeedBack</h4><br>
+                Rechercher: <input type="text" id="recherche">
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped" id="tableau">
+                    <thead>
+                    <th>Sujet</th>
+                    <th>Detail</th>
+                    </thead>
+                    {% for Feedback in Feedbacks %}
+                        <tbody>
+                        <tr>
+                            <td>{{ Feedback.sujet }}</td>
+
+                            <td><a href="{{ path('DetailFeedback',{'id':Feedback.id}) }} " class="material-icons button edit">Detail</a></td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
+        $(function () {
+            $("#recherche").keyup(function () {
+                $.ajax({
+                    url : "{{ path('recherche_feedback') }}",
+                    data : { 'sujet' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#tableau').empty();
+                    $('#tableau').append(tableau);
+                });
+            });
+        })
+    </script>
+
+{% endblock %}
